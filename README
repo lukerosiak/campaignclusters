@@ -1,0 +1,17 @@
+Campaign Clusters by Luke Rosiak of The Washington Times
+
+An experiment in using algorithms like TFI-DF to find bundlers and otherwise identify distinct groups who donate money to politicians in very defined ways.
+
+This relies data from the Center for Responsive Politics, so to use it you must have their indivs, cmtes and congcmtes tables set up. Their congcmtes table seemed outdated, so I used govtrak.us. I have a github library called pycrp that can help you get those tables imported. The govtrak thing might take some poking around (the committee assignments aren't strictly necessary for the project) but in any case, this is just a rough project that's probably more useful for abstracting into some other idea than running directly. 
+
+Whatever the marginal value of this code, it's released into the public domain.
+
+To use it:
+
+0) pip install
+1) Create a mysql database called FEC
+2) mysql FEC < create_db.sql
+3) python create_corpus.py
+4) python calculate_similarities.py
+5) python create_json.py (you need to configure it to put files locally or to an AWS bucket, after configuring clustersettings.py)
+6) put clusters.html online and set up the javascript to point to your json.

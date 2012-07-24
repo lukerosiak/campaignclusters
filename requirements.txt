@@ -1,0 +1,3 @@
+gensim
+boto
+MySQLdb
